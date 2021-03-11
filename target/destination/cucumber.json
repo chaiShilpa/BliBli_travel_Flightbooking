@@ -3,33 +3,11 @@
     "line": 2,
     "elements": [
       {
-        "line": 4,
-        "name": "",
-        "description": "  User navigates to Travel page",
-        "type": "background",
-        "keyword": "Background",
-        "steps": [
-          {
-            "result": {
-              "error_message": "org.openqa.selenium.WebDriverException: unknown error: cannot determine loading status\nfrom unknown error: cannot determine loading status\nfrom disconnected: received Inspector.detached event\n  (Session info: chrome\u003d88.0.4324.192)\nBuild info: version: \u00273.141.59\u0027, revision: \u0027e82be7d358\u0027, time: \u00272018-11-14T08:17:03\u0027\nSystem info: host: \u0027Chaitras-MacBook-Pro.local\u0027, ip: \u0027fe80:0:0:0:ce3:f777:1898:8603%en0\u0027, os.name: \u0027Mac OS X\u0027, os.arch: \u0027x86_64\u0027, os.version: \u002710.15.6\u0027, java.version: \u00271.8.0_171\u0027\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 88.0.4324.192, chrome: {chromedriverVersion: 88.0.4324.96 (68dba2d8a0b14..., userDataDir: /var/folders/ff/4smqp7w5403...}, goog:chromeOptions: {debuggerAddress: localhost:65245}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}\nSession ID: ffe15efcb04de20ac436afa06f9c08e8\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\n\tat sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\n\tat java.lang.reflect.Constructor.newInstance(Constructor.java:423)\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)\n\tat org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:277)\n\tat com.quinbay.Steps.MyStepdefs.getUrl(MyStepdefs.java:31)\n\tat ✽.I am on  Travel page(file:///Users/chaitrak/Downloads/BliBli_UI_Auto/src/test/resources/features/Travel.feature:6)\n",
-              "duration": 4866000000,
-              "status": "failed"
-            },
-            "line": 6,
-            "name": "I am on  Travel page",
-            "match": {
-              "location": "com.quinbay.Steps.MyStepdefs.getUrl()"
-            },
-            "keyword": "Given "
-          }
-        ]
-      },
-      {
-        "start_timestamp": "2021-03-09T17:26:20.977Z",
+        "start_timestamp": "2021-03-11T13:28:36.223Z",
         "before": [
           {
             "result": {
-              "duration": 1612000000,
+              "duration": 1891000000,
               "status": "passed"
             },
             "match": {
@@ -37,33 +15,94 @@
             }
           }
         ],
-        "line": 9,
-        "name": "Verify login fails with incorrect credentials",
+        "line": 4,
+        "name": "User books the flight ticket",
         "description": "",
-        "id": "flight-booking;verify-login-fails-with-incorrect-credentials",
+        "id": "flight-ticket-booking;user-books-the-flight-ticket",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 1000000,
-              "status": "skipped"
+              "duration": 6090000000,
+              "status": "passed"
             },
-            "line": 10,
-            "name": "change the place name",
+            "line": 5,
+            "name": "The user should go to the home page of the travel website",
             "match": {
-              "location": "com.quinbay.Steps.MyStepdefs.changeThePlaceName()"
+              "location": "com.quinbay.Steps.Returnwithouttransit.theUserShouldGoToTheHomePageOfTheBlibliTravelWebsite()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 11637000000,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "Enter the details to book the flight",
+            "match": {
+              "location": "com.quinbay.Steps.Returnwithouttransit.enterTheDetailsToBookAFlight()"
             },
             "keyword": "Then "
           },
           {
             "result": {
+              "duration": 3117000000,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "Click book a plane",
+            "match": {
+              "location": "com.quinbay.Steps.Returnwithouttransit.clickBookAFlight()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 3013000000,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "Scroll the page until the planes are visible",
+            "match": {
+              "location": "com.quinbay.Steps.Returnwithouttransit.scrollThePageUntilTheFlightsAreVisible()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "error_message": "org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//*[@class\u003d\u0027hub__flight-detail-right__departure\u0027]/div[@class\u003d\u0027route__departure-city\u0027]\"}\n  (Session info: chrome\u003d88.0.4324.192)\nFor documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html\nBuild info: version: \u00273.141.59\u0027, revision: \u0027e82be7d358\u0027, time: \u00272018-11-14T08:17:03\u0027\nSystem info: host: \u0027Chaitras-MacBook-Pro.local\u0027, ip: \u0027fe80:0:0:0:1cea:3a53:91c1:9d04%en0\u0027, os.name: \u0027Mac OS X\u0027, os.arch: \u0027x86_64\u0027, os.version: \u002710.15.6\u0027, java.version: \u00271.8.0_171\u0027\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 88.0.4324.192, chrome: {chromedriverVersion: 88.0.4324.96 (68dba2d8a0b14..., userDataDir: /var/folders/ff/4smqp7w5403...}, goog:chromeOptions: {debuggerAddress: localhost:49383}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}\nSession ID: 278617ae6db9994aed2f446cc135f669\n*** Element info: {Using\u003dxpath, value\u003d//*[@class\u003d\u0027hub__flight-detail-right__departure\u0027]/div[@class\u003d\u0027route__departure-city\u0027]}\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\n\tat sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\n\tat java.lang.reflect.Constructor.newInstance(Constructor.java:423)\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)\n\tat org.openqa.selenium.By$ByXPath.findElement(By.java:353)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)\n\tat com.quinbay.Steps.Returnwithouttransit.clickOnTheDetailLink(Returnwithouttransit.java:66)\n\tat ✽.click on the details link and store details in map(file:///Users/chaitrak/Downloads/BliBli_UI_Auto/src/test/resources/features/Returnwithouttransit.feature:9)\n",
+              "duration": 5132000000,
+              "status": "failed"
+            },
+            "line": 9,
+            "name": "click on the details link and store details in map",
+            "match": {
+              "location": "com.quinbay.Steps.Returnwithouttransit.clickOnTheDetailLink()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 10,
+            "name": "Click on the go button",
+            "match": {
+              "location": "com.quinbay.Steps.Returnwithouttransit.clickOnTheSelectGoButton()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1000000,
               "status": "skipped"
             },
             "line": 11,
-            "name": "I click on Find ticket",
+            "name": "Click on the details section for return and verify",
             "match": {
-              "location": "com.quinbay.Steps.MyStepdefs.iClickOnFindTicket()"
+              "location": "com.quinbay.Steps.Returnwithouttransit.clickOnTheDetailSectionForReturnAndVerifyTheValues()"
             },
             "keyword": "And "
           },
@@ -72,20 +111,21 @@
               "status": "skipped"
             },
             "line": 12,
-            "name": "click on detail and do the assert",
+            "name": "Click on the select go button for return flight",
             "match": {
-              "location": "com.quinbay.Steps.MyStepdefs.clickOnDetailAndDoTheAssert()"
+              "location": "com.quinbay.Steps.Returnwithouttransit.clickOnTheSelectGoButtonForReturnFlight()"
             },
             "keyword": "And "
           },
           {
             "result": {
+              "duration": 1000000,
               "status": "skipped"
             },
             "line": 13,
-            "name": "click on Select go",
+            "name": "Click on the details section and verify detail",
             "match": {
-              "location": "com.quinbay.Steps.MyStepdefs.clickOnSelectGo()"
+              "location": "com.quinbay.Steps.Returnwithouttransit.clickOnTheDetailSectionAndVerify()"
             },
             "keyword": "And "
           },
@@ -94,38 +134,16 @@
               "status": "skipped"
             },
             "line": 14,
-            "name": "click on detials on filling page and assert values",
+            "name": "Enter the details to book a plane",
             "match": {
-              "location": "com.quinbay.Steps.MyStepdefs.clickOnDetialsOnFillingPageAndAssertValues()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "skipped"
-            },
-            "line": 15,
-            "name": "user fills the details and confirm order",
-            "match": {
-              "location": "com.quinbay.Steps.MyStepdefs.userFillsTheDetailsAndConfirmOrder()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "skipped"
-            },
-            "line": 16,
-            "name": "Assert details in payment page",
-            "match": {
-              "location": "com.quinbay.Steps.MyStepdefs.assertDetailsInPaymentPage()"
+              "location": "com.quinbay.Steps.Returnwithouttransit.enterTheDetailsToProceed()"
             },
             "keyword": "And "
           }
         ],
         "tags": [
           {
-            "name": "@Flightbooking"
+            "name": "@Return"
           },
           {
             "name": "@Test1"
@@ -133,14 +151,14 @@
         ]
       }
     ],
-    "name": "Flight booking",
+    "name": "FLight Ticket Booking",
     "description": "",
-    "id": "flight-booking",
+    "id": "flight-ticket-booking",
     "keyword": "Feature",
-    "uri": "file:src/test/resources/features/Travel.feature",
+    "uri": "file:src/test/resources/features/Returnwithouttransit.feature",
     "tags": [
       {
-        "name": "@Flightbooking",
+        "name": "@Return",
         "type": "Tag",
         "location": {
           "line": 1,

@@ -1,5 +1,7 @@
 package com.quinbay.Steps;
 
+import com.quinbay.Pages.DetailpageXpath;
+import com.quinbay.Pages.HomepageXpath;
 import com.quinbay.cucumber.CucumberHooks;
 import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
@@ -8,6 +10,7 @@ import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.omg.PortableInterceptor.ACTIVE;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
@@ -19,6 +22,7 @@ import static com.quinbay.Utils.Propertypage.prop;
 public class StepsPage {
     CucumberHooks actions = new CucumberHooks();
     LinkedHashMap map=new LinkedHashMap();
+    List<WebElement> Source,destination,sourcetime,destinationTime,Flightnumber;
     @Given("User is on  Travel page")
     public void userIsOnTravelPage() {
         actions.driver.get("https://www.blibli.com/travel");
@@ -27,52 +31,80 @@ public class StepsPage {
     @Then("change the date")
     public void changeTheDate() throws InterruptedException {
         Thread.sleep(2000);
-        actions.driver.findElement(By.xpath("//button[@class='date__text--btn']")).click();
+        actions.driver.findElement(By.xpath(HomepageXpath.Date)).click();
         actions.driver.findElement(By.xpath("//button[@data-pika-month='3'][@data-pika-day='30']")).click();
     }
 
     @And("I click on Find tickets")
     public void iClickOnFindTickets() {
-        actions.driver.findElement(By.xpath("//button[@class='button button--orange button--big button--full form__button']")).click();
+        actions.driver.findElement(By.xpath(HomepageXpath.Search_flight)).click();
     }
 
     @And("click on detail on flight list page and do the assert")
-    public void clickOnDetailOnFlightListPageAndDoTheAssert() throws InterruptedException {
+    public void clickOnDetailOnFlightListPageAndDoTheAssert() throws InterruptedException {Thread.sleep(5000);
+        actions.driver.findElement(By.xpath(DetailpageXpath.Details)).click();
+             Source=actions.driver.findElements(By.xpath(DetailpageXpath.Source));
+             for(int i=0;i<Source.size();i++){
+                String s= Source.get(0).getText();
+                String s2=Source.get(1).getText();
+                map.put("source",s);
+                map.put("source2",s2); }
         Thread.sleep(5000);
-        actions.driver.findElement(By.xpath("//*[@id=\"travel-blibli-app\"]/div/main/div[1]/section/div/div[3]/div[2]/div[2]/div[3]/div[3]/div[4]/div/div/div[1]/div[2]/div/ul/li[1]/a")).click();
-
-        map.put("source",actions.driver.findElement(By.xpath("//div[@class='hub__flight-detail-right__departure']/div[contains(text(),'Jakarta (CGK)')]")).getText());
-        map.put("destination",actions.driver.findElement(By.xpath("//div[@class='hub__flight-detail-right__departure']/div[contains(text(),'Surabaya (SUB)')]")).getText());
-        map.put("destination2",actions.driver.findElement(By.xpath("//div[@class='hub__flight-detail-right__arrival']/div[contains(text(),'Denpasar (DPS)')]")).getText());
-        map.put("sourcetime1",actions.driver.findElement(By.xpath("//div[@class='route__departure-time']/span[contains(text(),'05:35')]")).getText());
-        map.put("destinationtime1",actions.driver.findElement(By.xpath("//div[@class='route__arrival-time']/span[contains(text(),'07:05')]")).getText());
-        map.put("sourcetime2",actions.driver.findElement(By.xpath("//div[@class='route__departure-time']/span[contains(text(),'13:50')]")).getText());
-        map.put("destinationtime2",actions.driver.findElement(By.xpath("//div[@class='route__arrival-time']/span[contains(text(),'15:45')]")).getText());
-        map.put("Flight1",actions.driver.findElement(By.xpath("//div[@class='route__departure-airline-logo']/following::div[contains(text(),'QZ-7688')]")).getText());
-        map.put("Flight2",actions.driver.findElement(By.xpath("//div[@class='route__departure-airline-logo']/following::div[contains(text(),'QZ-629')]")).getText());
+         destination=actions.driver.findElements(By.xpath(DetailpageXpath.Destination));
+        for(int i=0;i<destination.size();i++){
+            String d=destination.get(1).getText();
+            map.put("destination2",d); }
+        sourcetime= actions.driver.findElements(By.xpath(DetailpageXpath.SourceTime));
+        for(int i=0;i<sourcetime.size();i++){
+            String t=sourcetime.get(0).getText();
+            String t1=sourcetime.get(1).getText();
+            map.put("sourcetime",t);
+            map.put("sourcetime2",t1);
+        }
+         destinationTime=actions.driver.findElements(By.xpath(DetailpageXpath.DestinationTime));
+        for(int i=0;i<destinationTime.size();i++){
+            String desTime=destinationTime.get(0).getText();
+            String desTime1=destinationTime.get(1).getText();
+            map.put("Destinationtime",desTime);
+            map.put("Destinationtime1",desTime1);
+        }
+         Flightnumber=actions.driver.findElements(By.xpath(DetailpageXpath.Flight1));
+        for (int i=0;i<Flightnumber.size();i++){
+            String flight1=Flightnumber.get(0).getText();
+            String flight2=Flightnumber.get(1).getText() ;
+            map.put("Flight1",flight1);
+            map.put("Flight2",flight2);
+        }
 //        Thread.sleep(1000);
 //        actions.driver.findElement(By.xpath(prop.getProperty("closeicon"))).click();
     }
 
     @And("click on Select_go")
-    public void clickOnSelect_go() {
-        actions.driver.findElement(By.xpath("//*[@id=\"travel-blibli-app\"]/div/main/div[1]/section/div/div[3]/div[2]/div[2]/div[3]/div[3]/div[4]/div/div/div[2]/button")).click();
+    public void clickOnSelect_go() throws InterruptedException {
+        Thread.sleep(5000);
+        actions.driver.findElement(By.xpath(DetailpageXpath.Search)).click();
     }
 
     @And("click on detials in filling page and assert values")
     public void clickOnDetialsInFillingPageAndAssertValues() throws InterruptedException {
         Thread.sleep(5000);
-        actions.driver.findElement(By.xpath("//a[contains(text(),'Detail')]")).click();
+        actions.driver.findElement(By.xpath(DetailpageXpath.Detail_Fillpage)).click();
         Thread.sleep(3000);
-        Assert.assertEquals(map.get("source"),actions.driver.findElement(By.xpath("//div[@class='hub__flight-detail-right__departure']/div[contains(text(),'Jakarta (CGK)')]")).getText());
-        Assert.assertEquals(map.get("destination"),actions.driver.findElement(By.xpath("//div[@class='hub__flight-detail-right__departure']/div[contains(text(),'Surabaya (SUB)')]")).getText());
-        Assert.assertEquals(map.get("destination2"),actions.driver.findElement(By.xpath("//div[@class='hub__flight-detail-right__arrival']/div[contains(text(),'Denpasar (DPS)')]")).getText());
-        Assert.assertEquals(map.get("sourcetime1"),actions.driver.findElement(By.xpath("//div[@class='route__departure-time']/span[contains(text(),'05:35')]")).getText());
-        Assert.assertEquals(map.get("destinationtime1"),actions.driver.findElement(By.xpath("//div[@class='route__arrival-time']/span[contains(text(),'07:05')]")).getText());
-        Assert.assertEquals(map.get("sourcetime2"),actions.driver.findElement(By.xpath("//div[@class='route__departure-time']/span[contains(text(),'13:50')]")).getText());
-        Assert.assertEquals(map.get("destinationtime2"),actions.driver.findElement(By.xpath("//div[@class='route__arrival-time']/span[contains(text(),'15:45')]")).getText());
-        Assert.assertEquals(map.get("Flight1"),actions.driver.findElement(By.xpath("//div[@class='route__departure-airline-logo']/following::div[contains(text(),'QZ-7688')]")).getText());
-        Assert.assertEquals(map.get("Flight2"),actions.driver.findElement(By.xpath("//div[@class='route__departure-airline-logo']/following::div[contains(text(),'QZ-629')]")).getText());
+        Source=actions.driver.findElements(By.xpath(DetailpageXpath.Source));
+        destination=actions.driver.findElements(By.xpath(DetailpageXpath.Destination));
+        sourcetime= actions.driver.findElements(By.xpath(DetailpageXpath.SourceTime));
+        destinationTime=actions.driver.findElements(By.xpath(DetailpageXpath.DestinationTime));
+        Flightnumber=actions.driver.findElements(By.xpath(DetailpageXpath.Flight1));
+
+        Assert.assertEquals(map.get("source"),Source.get(0).getText());
+        Assert.assertEquals(map.get("source2"),Source.get(1).getText());
+        Assert.assertEquals(map.get("destination2"),destination.get(1).getText());
+        Assert.assertEquals(map.get("sourcetime"),sourcetime.get(0).getText());
+        Assert.assertEquals(map.get("sourcetime2"),sourcetime.get(1).getText());
+        Assert.assertEquals(map.get("Destinationtime"),destinationTime.get(0).getText());
+        Assert.assertEquals(map.get("Destinationtime1"),destinationTime.get(1).getText());
+        Assert.assertEquals(map.get("Flight1"),Flightnumber.get(0).getText());
+        Assert.assertEquals(map.get("Flight2"),Flightnumber.get(1).getText());
         actions.driver.findElement(By.xpath("//b[contains(text(),'×')]")).click();
         Thread.sleep(3000);
         System.out.println("details on filling page");
@@ -90,7 +122,7 @@ public class StepsPage {
         actions.driver.findElement(By.xpath("//input[@name='email']")).sendKeys("chai@gmail.com");
         actions.driver.findElement(By.xpath("//label[@for='copy_contact']")).click();
         //action.driver.findElement(By.xpath("Details")).click();
-        Select s1=new Select(actions.driver.findElement(By.xpath("Date=//*[@id=\"travel-blibli-app\"]/div/main/div[1]/section/div/div[2]/div[1]/div[4]/div[1]/div[2]/div/div[3]/div/div/ul/li[1]/select")));s1.selectByVisibleText("21");
+        Select s1=new Select(actions.driver.findElement(By.xpath("//*[@id=\"travel-blibli-app\"]/div/main/div[1]/section/div/div[2]/div[1]/div[4]/div[1]/div[2]/div/div[3]/div/div/ul/li[1]/select")));s1.selectByVisibleText("21");
         Select s2=new Select(actions.driver.findElement(By.xpath("//*[@id=\"travel-blibli-app\"]/div/main/div[1]/section/div/div[2]/div[1]/div[4]/div[1]/div[2]/div/div[3]/div/div/ul/li[2]/select")));s2.selectByVisibleText("Mei");
         Select s3=new Select(actions.driver.findElement(By.xpath("//*[@id=\"travel-blibli-app\"]/div/main/div[1]/section/div/div[2]/div[1]/div[4]/div[1]/div[2]/div/div[3]/div/div/ul/li[3]/select")));s3.selectByVisibleText("1999");
         actions.driver.findElement(By.xpath("//button[contains(text(),'Lanjutkan pemesanan')]")).click();
@@ -99,20 +131,28 @@ public class StepsPage {
     }
 
     @And("Assert details in payment page for transit")
-    public void assertDetailsInPaymentPageForTransit() {
+    public void assertDetailsInPaymentPageForTransit() throws InterruptedException {
         actions.driver.findElement(By.xpath("//a[contains(text(),'Detail')]")).click();
-        Assert.assertEquals(map.get("source"),actions.driver.findElement(By.xpath("//div[@class='hub__flight-detail-right__departure']/div[contains(text(),'Jakarta (CGK)')]")).getText());System.out.println("getting source place");
-        Assert.assertEquals(map.get("destination"),actions.driver.findElement(By.xpath("//div[@class='hub__flight-detail-right__departure']/div[contains(text(),'Surabaya (SUB)')]")).getText());System.out.println("getting destination1 place");
-        Assert.assertEquals(map.get("destination2"),actions.driver.findElement(By.xpath("//div[@class='hub__flight-detail-right__arrival']/div[contains(text(),'Denpasar (DPS)')]")).getText());System.out.println("getting destination2 place");
-        Assert.assertEquals(map.get("sourcetime1"),actions.driver.findElement(By.xpath("//div[@class='route__departure-time']/span[contains(text(),'05:35')]")).getText());System.out.println("getting sourcetime2");
-        Assert.assertEquals(map.get("destinationtime1"),actions.driver.findElement(By.xpath("//div[@class='route__arrival-time']/span[contains(text(),'07:05')]")).getText());System.out.println("getiing source time");
-        Assert.assertEquals(map.get("sourcetime2"),actions.driver.findElement(By.xpath("//div[@class='route__departure-time']/span[contains(text(),'13:50')]")).getText());System.out.println("getiing destination1 time");
-        Assert.assertEquals(map.get("destinationtime2"),actions.driver.findElement(By.xpath("//div[@class='route__arrival-time']/span[contains(text(),'15:45')]")).getText());System.out.println("getiing destination2 time");
-        Assert.assertEquals(map.get("Flight1"),actions.driver.findElement(By.xpath("//div[@class='route__departure-airline-logo']/following::div[contains(text(),'QZ-7688')]")).getText());System.out.println("flight1");System.out.println("");
-        Assert.assertEquals(map.get("Flight2"),actions.driver.findElement(By.xpath("//div[@class='route__departure-airline-logo']/following::div[contains(text(),'QZ-629')]")).getText());
+        Thread.sleep(3000);
+        Source=actions.driver.findElements(By.xpath(DetailpageXpath.Source));
+        destination=actions.driver.findElements(By.xpath(DetailpageXpath.Destination));
+        sourcetime= actions.driver.findElements(By.xpath(DetailpageXpath.SourceTime));
+        destinationTime=actions.driver.findElements(By.xpath(DetailpageXpath.DestinationTime));
+        Flightnumber=actions.driver.findElements(By.xpath(DetailpageXpath.Flight1));
+
+        Assert.assertEquals(map.get("source"),Source.get(0).getText());
+        Assert.assertEquals(map.get("source2"),Source.get(1).getText());
+        Assert.assertEquals(map.get("destination2"),destination.get(1).getText());
+        Assert.assertEquals(map.get("sourcetime"),sourcetime.get(0).getText());
+        Assert.assertEquals(map.get("sourcetime2"),sourcetime.get(1).getText());
+        Assert.assertEquals(map.get("Destinationtime"),destinationTime.get(0).getText());
+        Assert.assertEquals(map.get("Destinationtime1"),destinationTime.get(1).getText());
+        Assert.assertEquals(map.get("Flight1"),Flightnumber.get(0).getText());
+        Assert.assertEquals(map.get("Flight2"),Flightnumber.get(1).getText());
+        actions.driver.findElement(By.xpath("//b[contains(text(),'×')]")).click();
+        Thread.sleep(3000);
 
         System.out.println("fight is present");
 
-        actions.driver.findElement(By.xpath("//b[contains(text(),'×')]")).click();
     }
 }

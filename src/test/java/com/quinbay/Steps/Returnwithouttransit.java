@@ -12,18 +12,17 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import static org.junit.Assert.*;
 import org.openqa.selenium.support.ui.Select;
 import java.util.LinkedHashMap;
-public class Return {
+public class Returnwithouttransit {
     static WebDriver driver;
     JavascriptExecutor js;
     LinkedHashMap<String, String> map = new LinkedHashMap<>();
-    HomepageXpath xpath;
+    HomepageXpath xpath1;
 
     @Given("The user should go to the home page of the travel website")
     public void theUserShouldGoToTheHomePageOfTheBlibliTravelWebsite() {
         System.out.println("Navigate to the blibli travel website");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications");
-        System.setProperty("webdriver.chrome.driver", "path/to/driver/exe");
         System.setProperty("webdriver.chrome.driver", "src/test/resources/driver/chromedriver");
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
@@ -34,12 +33,13 @@ public class Return {
     @Then("Enter the details to book the flight")
     public void enterTheDetailsToBookAFlight() throws InterruptedException {
         System.out.println("User enters the details");
-        Thread.sleep(2000);
-        WebElement place = driver.findElement(By.xpath(xpath.Place));
+        Thread.sleep(3000);
+        WebElement place = driver.findElement(By.xpath("//input[@placeholder='Pilih kota tujuan']"));
+        place.click();
         place.sendKeys("Surabaya");
         place.sendKeys(Keys.ENTER);
-        driver.findElement(By.xpath(xpath.calenderbutton)).click();
-        driver.findElement(By.xpath(xpath.date)).click();
+        driver.findElement(By.xpath("//button[@class='date__text--btn']")).click();
+        driver.findElement(By.xpath("//button[@data-pika-month='3'][@data-pika-day='30']")).click();
         Thread.sleep(5000);
         driver.findElement(By.xpath("//small[contains(text(),'Pulang Pergi')]")).click();
         Thread.sleep(3000);
@@ -48,7 +48,7 @@ public class Return {
     @And("Click book a plane")
     public void clickBookAFlight() throws InterruptedException {
         System.out.println("User clicks book flight button");
-        driver.findElement(By.xpath(xpath.serach_flight)).click();
+        driver.findElement(By.xpath("//button[@class='button button--orange button--big button--full form__button']")).click();
         Thread.sleep(3000);
         System.out.println("Book button was clicked by user");
     }
@@ -80,21 +80,13 @@ public class Return {
         System.out.println("Click on details section for return and verify the details");
         Thread.sleep(3000);
         Thread.sleep(3000);
-        driver.findElement(By.xpath(DetailpageXpath.Details)).click();
+        driver.findElement(By.xpath("//*[@id=\"travel-blibli-app\"]/div/main/div[1]/section/div/div[3]/div[2]/div[2]/div[3]/div[4]/div[1]/div/div/div[1]/div[2]/div/ul/li[1]/a")).click();
         map.put("source2", driver.findElements(By.xpath(DetailpageXpath.source)).get(1).getText());
         map.put("destination2", driver.findElements(By.xpath(DetailpageXpath.destination)).get(1).getText());
         map.put("Airline-code2", driver.findElements(By.xpath(DetailpageXpath.Flight)).get(1).getText());
         map.put("start-time2", driver.findElements(By.xpath(DetailpageXpath.sourceTime)).get(1).getText());
         map.put("end-time2", driver.findElements(By.xpath(DetailpageXpath.destinationTime)).get(1).getText());
         System.out.println("The details are verified");
-    }
-    @And("Click on the select go button for return")
-    public void click_on_the_select_go_button_for_return() throws InterruptedException {
-        System.out.println("Click on select go button");
-        driver.findElement(By.xpath("//b[contains(text(),'×')]")).click();
-        driver.findElement(By.xpath(DetailpageXpath.search)).click();
-        //driver.findElement(By.xpath(DetailpageXpath.orderTicket)).click();
-        Thread.sleep(5000);
     }
     @And("Enter the details to book a plane")
     public void enterTheDetailsToProceed() throws InterruptedException {
@@ -108,13 +100,15 @@ public class Return {
         js.executeScript("window.scrollBy(0,700)");
         driver.findElement(By.xpath(Filling_page.checkbox)).click();
         Thread.sleep(10000);
+        driver.findElement(By.xpath("//button[@class='button button--orange button--biggest']")).click();
+        driver.findElement(By.xpath("//button[@class='confirmation-alert--ok']")).click();
         System.out.println("The details are entered");
     }
     @And("Click on the details section and verify detail")
     public void clickOnTheDetailSectionAndVerify() throws InterruptedException {
         System.out.println("Click on detail section and verify details");
         //detail= prop.getProperty("detail1");
-        driver.findElement(By.xpath(DetailpageXpath.Details)).click();
+        driver.findElement(By.xpath("//a[contains(text(),'Detail')]")).click();
         //driver.findElement(By.xpath(detail)).click();
         Thread.sleep(3000);
         assertEquals(map.get("source1"), driver.findElement(By.xpath(DetailpageXpath.source)).getText());
@@ -125,5 +119,15 @@ public class Return {
         Thread.sleep(3000);
         driver.findElement(By.xpath("//b[contains(text(),'×')]")).click();
         System.out.println("The details are verified");
+    }
+
+    @And("Click on the select go button for return flight")
+    public void clickOnTheSelectGoButtonForReturnFlight() throws InterruptedException {
+        System.out.println("Click on select go button");
+        //driver.findElement(By.xpath("//b[contains(text(),'×')]")).click();
+        driver.findElement(By.xpath("//*[@id=\"travel-blibli-app\"]/div/main/div[1]/section/div/div[3]/div[2]/div[2]/div[3]/div[4]/div[1]/div/div/div[2]/button")).click();
+        driver.findElement(By.xpath("//*[@id=\"travel-blibli-app\"]/div/main/div[1]/section/div/div[3]/div[2]/div[2]/div[2]/div[1]/div[4]/div[3]/button")).click();
+        //driver.findElement(By.xpath(DetailpageXpath.orderTicket)).click();
+        Thread.sleep(5000);
     }
 }

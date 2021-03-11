@@ -8,10 +8,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 
-public class XpathPage  {
+public class HomepageXpath {
     public String Place="//input[@placeholder='Pilih kota asal']";
     public String calenderbutton="//button[@class='date__text--btn']";
     public String date="//button[@data-pika-month='3'][@data-pika-day='30']";
+    public  String serach_flight="//button[@class='button button--orange button--big button--full form__button']";
+//    for Transit
+
+    public static String Date="//button[@class='date__text--btn']";
+    public static String Calender="//button[@data-pika-month='3'][@data-pika-day='30']";
+    public static String Search_flight="//button[@class='button button--orange button--big button--full form__button']";
 
 
 
