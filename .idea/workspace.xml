@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="96b1adaf-0044-4108-a5fe-dffd3010130b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/quinbay/Pages/DetailpageXpath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/quinbay/Pages/DetailpageXpath.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/quinbay/Pages/Filling_page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/quinbay/Pages/Filling_page.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/quinbay/Pages/HomepageXpath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/quinbay/Pages/HomepageXpath.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/quinbay/Steps/MyStepdefs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/quinbay/Steps/MyStepdefs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/quinbay/Steps/ReturnFlightwithTransit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/quinbay/Steps/ReturnFlightwithTransit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/quinbay/Steps/Returnwithouttransit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/quinbay/Steps/Returnwithouttransit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/quinbay/Steps/StepsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/quinbay/Steps/StepsPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/quinbay/cucumber/CucumberRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/quinbay/cucumber/CucumberRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/Returnwithouttransit.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Returnwithouttransit.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/returnwihTransitFlight.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/returnwihTransitFlight.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cucumber/report.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/cucumber/report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/destination/cucumber.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/destination/cucumber.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/quinbay/Pages/XpathPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/quinbay/Steps/MyStepdefs.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/quinbay/Steps/MyStepdefs.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/quinbay/Steps/StepsPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/quinbay/Steps/StepsPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/quinbay/Utils/Actionpage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/quinbay/cucumber/CucumberRunner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/quinbay/cucumber/CucumberRunner.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1pTEEUKK5GOtl1kbWy8bxWzYjQh" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/resources/driver" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="CucumberRunner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BliBli_UI_Auto" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.quinbay.cucumber.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.quinbay.cucumber" />
+      <option name="MAIN_CLASS_NAME" value="com.quinbay.cucumber.CucumberRunner" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.CucumberRunner" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="96b1adaf-0044-4108-a5fe-dffd3010130b" name="Default Changelist" comment="" />
+      <created>1615198567428</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1615198567428</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>
